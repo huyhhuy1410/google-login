@@ -1,52 +1,50 @@
-# Google Login for WordPress
+# Login with Google — Custom WordPress Authentication Plugin
 
-A WordPress plugin that adds Google account login to the frontend and optionally to the WordPress admin login screen. It includes a settings page, shortcode rendering, Google Identity Services integration, token verification, user provisioning, and avatar import.
+> **OAuth 2.0 & OpenID Connect Social Authentication for WordPress**  
+> *A modular WordPress plugin integrating Google OAuth 2.0 authentication for fast, passwordless user registration and login.*
 
-## What It Does
+[![WordPress](https://img.shields.io/badge/WordPress-5.0%2B-21759B?style=flat-square&logo=wordpress&logoColor=white)](https://wordpress.org)
+[![PHP](https://img.shields.io/badge/PHP-7.4%2B-777BB4?style=flat-square&logo=php&logoColor=white)](https://php.net)
+[![Google Cloud](https://img.shields.io/badge/Google-OAuth%202.0-4285F4?style=flat-square&logo=google&logoColor=white)](https://console.cloud.google.com/)
 
-- Adds a Google login button through shortcode.
-- Optionally displays the Google login button on the WordPress login screen.
-- Provides a WordPress admin settings page for Google OAuth configuration.
-- Uses Google Identity Services on the frontend.
-- Verifies Google ID tokens before authenticating users.
-- Creates WordPress users from verified Google profile data when needed.
-- Logs existing users in when the Google email matches an existing WordPress account.
-- Imports and stores Google profile images as WordPress avatar metadata.
-- Supports redirect configuration after successful login.
+---
 
-## Shortcodes
+## 📌 Technical Motivation
 
-- `[google_login]` renders the frontend Google login button.
-- `[admin_google_login]` renders the admin/login-screen button.
+Passwordless login significantly reduces registration drop-off rates. **Login with Google** is an **independent custom WordPress plugin** designed to enable 1-click Google sign-in using OAuth 2.0 and Google API client libraries.
 
-## Main Features
+---
 
-- Configurable Google Client ID.
-- Optional Client Secret setting field for projects that require it.
-- Optional redirect URL after login.
-- Optional display on the WordPress admin login form.
-- Custom class and ID settings for the rendered shortcode button.
-- Admin tabs for setup guide, general settings, and usage.
+## ⚙️ Core Technical Features
 
-## Technical Notes
+1. **Google OAuth 2.0 & Identity Protocol**
+   - Secure authorization handling via Google Identity OAuth endpoints (`https://accounts.google.com/o/oauth2/v2/auth`).
+   - Verifies Google ID tokens and fetches user profile details (`email`, `given_name`, `family_name`, `picture`).
+2. **Account Provisioning & Security**
+   - Maps Google email addresses to WordPress user accounts (`wp_users`).
+   - Sets secure session authentication cookies via `wp_set_auth_cookie()` upon verification.
+3. **Admin Settings & Shortcode Renderer**
+   - Admin menu for managing **Client ID** and **Client Secret**.
+   - Embeddable shortcode `[google_login_btn]` for custom button placements across pages and modals.
 
-- Main class: `Google_Login`
-- Login method class: `Google_Login_Method`
-- Admin page class: `Google_Login_Admin_Page`
-- Shortcode classes:
-  - `google_login\Shortcodes\Google_Btn`
-  - `google_login\Shortcodes\Admin_Google_Btn`
-- AJAX action: `google_login`
-- Frontend data object: `googleLoginData`
-- Frontend assets:
-  - `assets/js/login.js`
-  - `assets/css/login.css`
-- Token verification endpoint: Google OAuth token info API.
+---
 
-## Installation
+## 🚀 Quick Start & Setup
 
-1. Upload the plugin folder to `wp-content/plugins/google-login`.
-2. Activate the plugin in WordPress Admin.
-3. Open the Google Login settings page.
-4. Enter the Google OAuth Client ID.
-5. Add `[google_login]` to any page, template, or builder field where the login button should appear.
+1. Clone into your WordPress plugins directory:
+   ```bash
+   cd wp-content/plugins/
+   git clone https://github.com/huyhhuy1410/google-login.git google-login
+   ```
+2. Activate **Login with Google** in **WordPress Admin $\rightarrow$ Plugins**.
+3. Configure your **Google Client ID** and **Client Secret** under **Settings $\rightarrow$ Google Login**.
+4. Place the shortcode on any login or registration template:
+   ```text
+   [google_login_btn]
+   ```
+
+---
+
+## 📄 License & Provenance Notice
+
+Created by Vo Quang Huy for technical demonstration. Open-source and free of proprietary code.
