@@ -45,6 +45,12 @@ Passwordless login significantly reduces registration drop-off rates. **Login wi
 
 ---
 
+## 🤝 Contributing
+
+Contributions, bug reports, and feature proposals are welcome! Feel free to open an issue or submit a Pull Request.
+
+---
+
 ## 📄 License & Provenance Notice
 
 Created by Vo Quang Huy for technical demonstration. Open-source and free of proprietary code.
